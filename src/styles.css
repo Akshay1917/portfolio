@@ -243,3 +243,75 @@ button { font: inherit; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .ambient-one, .ambient-two { animation: none !important; }
 }
+
+
+/* Resume actions */
+.button-resume {
+  background: rgba(167,139,250,.10);
+  border: 1px solid rgba(167,139,250,.36);
+  color: #e4dcff;
+  cursor: pointer;
+}
+.button-resume:hover {
+  background: rgba(167,139,250,.18);
+  border-color: rgba(167,139,250,.65);
+}
+.contact-resume {
+  margin-top: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 16px;
+  border: 1px solid rgba(167,139,250,.36);
+  border-radius: 7px;
+  background: rgba(167,139,250,.08);
+  color: #ded5ff;
+  font: 600 13px "DM Mono", monospace;
+  cursor: pointer;
+  transition: transform .2s, background .2s, border-color .2s;
+}
+.contact-resume:hover {
+  transform: translateY(-2px);
+  background: rgba(167,139,250,.16);
+  border-color: rgba(167,139,250,.62);
+}
+.print-resume { display: none; }
+
+@media (max-width: 640px) {
+  .hero-actions { align-items: stretch; }
+  .hero-actions .button { justify-content: center; }
+  .contact-resume { width: 100%; justify-content: center; }
+}
+
+@media print {
+  @page { size: A4; margin: 10mm 11mm; }
+  html, body, #root { width: 100% !important; height: auto !important; min-width: 0 !important; background: #fff !important; }
+  body { margin: 0 !important; color: #172033 !important; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .site-shell { overflow: visible !important; background: #fff !important; }
+  .site-shell > *:not(.print-resume) { display: none !important; }
+  .print-resume {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    color: #172033 !important;
+    background: #fff !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 8.35pt !important;
+    line-height: 1.25 !important;
+  }
+  .print-header { text-align: center; border-bottom: 1.6pt solid #263b63; padding-bottom: 6pt; margin-bottom: 8pt; }
+  .print-header h1 { margin: 0 0 2pt !important; font-size: 24pt !important; line-height: 1 !important; letter-spacing: 1.5pt !important; color: #152849 !important; }
+  .print-subtitle { margin: 3pt 0 !important; font-size: 10pt !important; font-weight: bold; color: #263b63 !important; }
+  .print-contact { margin: 2pt 0 0 !important; font-size: 7.4pt !important; color: #334155 !important; }
+  .print-section { margin: 7pt 0 0 !important; break-inside: avoid; }
+  .print-section h2 { color: #fff !important; background: #253f68 !important; font-size: 8.5pt !important; line-height: 1.2 !important; letter-spacing: .7pt !important; padding: 3pt 5pt !important; margin: 0 0 4pt !important; }
+  .print-section p { margin: 2pt 0 !important; font-size: 8.15pt !important; line-height: 1.24 !important; color: #1f2937 !important; }
+  .print-section ul { margin: 1pt 0 4pt 13pt !important; padding: 0 !important; }
+  .print-section li { padding-left: 1pt !important; margin: 1pt 0 !important; font-size: 7.85pt !important; line-height: 1.18 !important; color: #1f2937 !important; }
+  .print-right { float: right; font-size: 7.7pt !important; }
+  .print-tech { color: #475569 !important; font-style: italic; font-size: 7.4pt !important; }
+  .print-note { border-top: .5pt solid #cbd5e1; margin-top: 6pt !important; padding-top: 3pt !important; font-size: 7pt !important; color: #64748b !important; }
+}
