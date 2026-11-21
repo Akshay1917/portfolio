@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import {
   ArrowDown, ArrowRight, ArrowUpRight, BrainCircuit, Code2, Cpu, Github,
   Linkedin, Mail, Menu, X, Sparkles, Terminal, Database, Globe, ExternalLink,
-  GraduationCap, Layers3,
+  GraduationCap, Layers3, FileDown,
 } from 'lucide-react'
 
 type Project = {
@@ -48,6 +48,33 @@ const skillGroups = [
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' as const } },
+}
+
+
+async function downloadResume() {
+  const partPaths = Array.from({ length: 6 }, (_, index) =>
+    `/resume-data/part-${String(index + 1).padStart(2, '0')}.txt`,
+  )
+  const encodedParts = await Promise.all(partPaths.map(async (path) => {
+    const response = await fetch(path)
+    if (!response.ok) throw new Error(`Could not load resume file: ${path}`)
+    return response.text()
+  }))
+  const base64 = encodedParts.join('').replace(/\\s/g, '')
+  const binary = atob(base64)
+  const bytes = new Uint8Array(binary.length)
+  for (let index = 0; index < binary.length; index++) {
+    bytes[index] = binary.charCodeAt(index)
+  }
+  const blob = new Blob([bytes], { type: 'application/pdf' })
+  const objectUrl = URL.createObjectURL(blob)
+  const anchor = document.createElement('a')
+  anchor.href = objectUrl
+  anchor.download = 'Akshay_Resume.pdf'
+  document.body.appendChild(anchor)
+  anchor.click()
+  anchor.remove()
+  URL.revokeObjectURL(objectUrl)
 }
 
 function WaterRippleCanvas() {
@@ -182,7 +209,7 @@ function App() {
             <motion.p className="hero-description" initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.16 }}>I'm Akshay — an AI & Machine Learning engineering student and Python developer interested in building useful products with intelligent technology.</motion.p>
             <motion.div className="hero-actions" initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.24 }}>
               <a className="button button-primary" href="#projects">Explore my work <ArrowUpRight size={17} /></a>
-              <a className="button button-ghost" href="#contact">Get in touch <ArrowRight size={16} /></a>
+              <a className="button button-ghost" href="#contact">Get in touch <ArrowRight size={16} /></a><button className="button button-resume" onClick={() => void downloadResume()}><FileDown size={16} /> Download Resume</button>
             </motion.div>
             <motion.div className="social-row" initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.3 }}>
               <a href="https://github.com/Akshay1917" target="_blank" rel="noreferrer"><Github size={17} /> GitHub <ArrowUpRight size={12} /></a>
