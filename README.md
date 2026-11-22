@@ -11,7 +11,7 @@ A responsive, wide-layout portfolio built with React, TypeScript, Vite, Tailwind
 - Larger typography and readable project descriptions
 - Project category filters
 - Direct GitHub buttons for linked project repositories
-- A print-ready resume layout accessible through the “Download Resume” buttons (choose “Save as PDF” in the browser print dialog)
+- A print-ready, one-page resume matching the latest resume details supplied for the portfolio (choose “Save as PDF” in the browser print dialog)
 - Reduced-motion support and mobile-friendly layouts
 
 ## Run locally
@@ -56,10 +56,10 @@ Import this repository into Vercel or Netlify. Use `npm run build` as the build 
 - Smart IoT Health Monitoring System: https://github.com/Akshay1917/Smart-IoT-Health-Monitoring-System
 - Student Management System: https://github.com/Akshay1917/student-management-system
 - Vehicle Rental System: https://github.com/Akshay1917/vehicle-rental-system
-- ESP32 IoT Home Automation: https://github.com/Akshay1917/ESP32-IoT-Home-Automation
+- LeafGen AI: https://github.com/Akshay1917/LeafGen-AI
 
 Projects without verified repository URLs are labelled as not linked yet.
 
 ## Resume download
 
-The “Download Resume” buttons open a print-ready resume view based on the supplied resume content. In the browser print dialog, choose **Save as PDF** to save a PDF copy.
+The “Download Resume” buttons open a print-ready, one-page version of the latest resume content supplied for this portfolio. In the browser print dialog, choose **Save as PDF** to save a PDF copy.
