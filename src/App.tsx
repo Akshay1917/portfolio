@@ -62,6 +62,11 @@ const fadeUp = {
 }
 
 
+function downloadResume() {
+  // Open the print-ready resume. In the browser print dialog, choose “Save as PDF”.
+  window.print()
+}
+
 function WaterRippleCanvas() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
 
@@ -194,7 +199,7 @@ function App() {
             <motion.p className="hero-description" initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.16 }}>I'm Akshay — an AI & Machine Learning engineering student and Python developer interested in building useful products with intelligent technology.</motion.p>
             <motion.div className="hero-actions" initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.24 }}>
               <a className="button button-primary" href="#projects">Explore my work <ArrowUpRight size={17} /></a>
-              <a className="button button-ghost" href="#contact">Get in touch <ArrowRight size={16} /></a><a className="button button-resume" href="/Akshay_Resume.pdf" download="Akshay_Resume.pdf"><FileDown size={16} /> Download Resume</a>
+              <a className="button button-ghost" href="#contact">Get in touch <ArrowRight size={16} /></a><button className="button button-resume" onClick={downloadResume}><FileDown size={16} /> Download Resume</button>
             </motion.div>
             <motion.div className="social-row" initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.3 }}>
               <a href="https://github.com/Akshay1917" target="_blank" rel="noreferrer"><Github size={17} /> GitHub <ArrowUpRight size={12} /></a>
@@ -238,9 +243,78 @@ function App() {
 
         <section className="section-wrap section-block" id="education"><div className="section-heading"><div><span className="section-index">04 / EDUCATION</span><h2>Learning is a <span className="gradient-text">journey.</span></h2></div></div><motion.div className="education-card" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={fadeUp}><div className="education-icon"><GraduationCap size={27} /></div><div className="education-details"><span className="education-period">2024 — 2028 · EXPECTED</span><h3>Bachelor of Engineering</h3><p>Artificial Intelligence & Machine Learning</p><span className="education-school">Dayananda Sagar Academy of Technology and Management</span></div><div className="education-score"><strong>8.44</strong><span>CGPA / 10</span></div></motion.div></section>
 
-        <section className="contact-section" id="contact"><div className="section-wrap contact-inner"><span className="section-index">05 / CONTACT</span><div className="contact-content"><div><h2>Have an idea?<br /><span className="gradient-text">Let's build it.</span></h2><p>I'm interested in internships, collaborations, and opportunities to learn by solving meaningful problems.</p></div><a className="contact-email" href="mailto:av3289216@gmail.com"><span><Mail size={19} /> Send me an email</span><ArrowUpRight size={22} /></a><a className="contact-resume" href="/Akshay_Resume.pdf" download="Akshay_Resume.pdf"><FileDown size={17} /> Download resume PDF</a></div><div className="contact-bottom"><span>BASED IN INDIA · OPEN TO OPPORTUNITIES</span><div><a href="https://github.com/Akshay1917" target="_blank" rel="noreferrer">GITHUB <ExternalLink size={12} /></a><a href="https://www.linkedin.com/in/akshay-v-215466394/" target="_blank" rel="noreferrer">LINKEDIN <ExternalLink size={12} /></a></div></div></div></section>
+        <section className="contact-section" id="contact"><div className="section-wrap contact-inner"><span className="section-index">05 / CONTACT</span><div className="contact-content"><div><h2>Have an idea?<br /><span className="gradient-text">Let's build it.</span></h2><p>I'm interested in internships, collaborations, and opportunities to learn by solving meaningful problems.</p></div><a className="contact-email" href="mailto:av3289216@gmail.com"><span><Mail size={19} /> Send me an email</span><ArrowUpRight size={22} /></a><button className="contact-resume" onClick={downloadResume}><FileDown size={17} /> Download resume PDF</button></div><div className="contact-bottom"><span>BASED IN INDIA · OPEN TO OPPORTUNITIES</span><div><a href="https://github.com/Akshay1917" target="_blank" rel="noreferrer">GITHUB <ExternalLink size={12} /></a><a href="https://www.linkedin.com/in/akshay-v-215466394/" target="_blank" rel="noreferrer">LINKEDIN <ExternalLink size={12} /></a></div></div></div></section>
       </main>
       <footer className="footer section-wrap"><a className="brand" href="#home"><span className="brand-mark">A<span>.</span></span><span>AKSHAY<span className="brand-sub"> / PORTFOLIO</span></span></a><span>DESIGNED & BUILT WITH CURIOSITY © {new Date().getFullYear()}</span><a href="#home" className="back-top">BACK TO TOP ↑</a></footer>
+      <section className="print-resume" aria-label="Printable resume">
+        <header className="print-header">
+          <h1>AKSHAY</h1>
+          <p className="print-subtitle">B.E. Artificial Intelligence &amp; Machine Learning | Python Developer</p>
+          <p className="print-contact">Phone: +91 8277454931 | Email: av3289216@gmail.com | GitHub: github.com/Akshay1917 | LinkedIn: linkedin.com/in/akshay-v-215466394</p>
+        </header>
+        <div className="print-section">
+          <h2>PROFESSIONAL SUMMARY</h2>
+          <p>Third-year Artificial Intelligence and Machine Learning engineering student with a CGPA of 8.44/10 and a strong interest in Python programming, AI applications, and software development. Hands-on experience developing academic projects involving AI-powered applications, web technologies, and IoT systems. Familiar with Python, FastAPI, React, TypeScript, SQL, and Git. Eager to apply technical knowledge, strengthen problem-solving abilities, and contribute to real-world software development projects.</p>
+        </div>
+        <div className="print-section">
+          <h2>EDUCATION</h2>
+          <p><strong>Bachelor of Engineering (B.E.) in Artificial Intelligence and Machine Learning</strong> <span className="print-right">2024–2028 (Expected)</span></p>
+          <p>Dayananda Sagar Academy of Technology and Management (DSATM), Bengaluru</p>
+          <p><strong>CGPA:</strong> 8.44 / 10.0</p>
+        </div>
+        <div className="print-section">
+          <h2>TECHNICAL SKILLS</h2>
+          <ul className="print-skills">
+            <li><strong>Primary Programming Language:</strong> Python</li>
+            <li><strong>Other Programming:</strong> Java, JavaScript, C++, C, SQL</li>
+            <li><strong>Frontend:</strong> HTML, CSS, React.js, TypeScript</li>
+            <li><strong>Backend:</strong> Python, FastAPI, Node.js, Flask</li>
+            <li><strong>Database:</strong> MySQL</li>
+            <li><strong>AI/ML:</strong> Machine Learning Fundamentals, Regression, Classification, LLM APIs, NLP, PyTorch, OpenCV, Pandas, NumPy</li>
+            <li><strong>Tools:</strong> Git, GitHub, VS Code, Arduino IDE, Pytest, Ruff</li>
+            <li><strong>IoT:</strong> ESP32, MAX30100, OLED Displays, Sensor Integration, Blynk Cloud</li>
+          </ul>
+        </div>
+        <div className="print-section">
+          <h2>ACADEMIC PROJECTS</h2>
+          <p className="print-project-title"><strong>DevMind AI – AI-Powered Developer Assistant</strong><em>Python, FastAPI, React, TypeScript</em></p>
+          <ul>
+            <li>Developing an AI-powered assistant to support software development workflows.</li>
+            <li>Designed a modular frontend and backend architecture.</li>
+            <li>Established backend API foundations using FastAPI.</li>
+            <li>Used pytest for backend testing and Ruff for code quality checks.</li>
+            <li>Applied Git and GitHub for version control.</li>
+          </ul>
+          <p className="print-project-title"><strong>AI PDF Summarizer</strong><em>Python, FastAPI, NLP, LLM APIs</em></p>
+          <ul>
+            <li>Explored an AI-based solution for extracting and summarizing PDF documents.</li>
+            <li>Focused on converting lengthy documents into concise, meaningful summaries.</li>
+            <li>Explored the use of language models for document understanding.</li>
+          </ul>
+          <p className="print-project-title"><strong>IoT-Based Health Monitoring System</strong><em>C++, ESP32, MAX30100, OLED, Blynk</em></p>
+          <ul>
+            <li>Developed a prototype for monitoring pulse rate and oxygen saturation.</li>
+            <li>Integrated the MAX30100 sensor with an ESP32 microcontroller.</li>
+            <li>Displayed sensor readings on an OLED display.</li>
+            <li>Explored cloud-based monitoring and alert functionality.</li>
+          </ul>
+        </div>
+        <div className="print-section">
+          <h2>CORE STRENGTHS</h2>
+          <ul className="print-strengths">
+            <li>Problem-solving and logical thinking</li>
+            <li>Quick learning and adaptability</li>
+            <li>Team collaboration</li>
+            <li>Self-learning and continuous improvement</li>
+            <li>Willingness to take responsibility</li>
+          </ul>
+        </div>
+        <div className="print-section">
+          <h2>CAREER OBJECTIVE</h2>
+          <p>To build a career in software development and artificial intelligence by applying programming skills, learning industry practices, and contributing to innovative technology solutions.</p>
+        </div>
+      </section>
+
 
 
     </div>
