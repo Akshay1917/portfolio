@@ -48,6 +48,7 @@ const projects: Project[] = [
     stack: ['Python', 'Flask', 'MySQL', 'HTML / CSS', 'JavaScript'], icon: Globe,
     status: 'Built project', accent: 'violet', githubUrl: 'https://github.com/Akshay1917/vehicle-rental-system',
   },
+]
 
 const skillGroups = [
   { title: 'Programming', icon: Terminal, items: ['Python', 'Java', 'JavaScript', 'SQL'] },
