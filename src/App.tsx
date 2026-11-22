@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import {
   ArrowDown, ArrowRight, ArrowUpRight, BrainCircuit, Code2, Cpu, Github,
   Linkedin, Mail, Menu, X, Sparkles, Terminal, Database, Globe, ExternalLink,
-  GraduationCap, Layers3, FileDown,
+  GraduationCap, Layers3, FileDown, Leaf,
 } from 'lucide-react'
 
 type Project = {
@@ -31,10 +31,10 @@ const projects: Project[] = [
     status: 'Prototype', accent: 'green', githubUrl: 'https://github.com/Akshay1917/Smart-IoT-Health-Monitoring-System',
   },
   {
-    number: '04', title: 'CNN Eye Detection', category: 'Computer Vision · Deep Learning',
-    description: 'A computer-vision project exploring CNN-based eye detection with image processing and model execution workflows.',
-    stack: ['Python', 'TensorFlow / Keras', 'OpenCV', 'CNN'], icon: Code2,
-    status: 'Model experimentation', accent: 'orange',
+    number: '04', title: 'LeafGen AI', category: 'AI · Computer Vision · Generative AI',
+    description: 'An AI-powered plant leaf disease classification and conditional synthetic leaf image generation project, built around a FastAPI service and deep-learning models.',
+    stack: ['Python', 'FastAPI', 'PyTorch', 'Deep Learning', 'Image Generation'], icon: Leaf,
+    status: 'In development', accent: 'green', githubUrl: 'https://github.com/Akshay1917/LeafGen-AI',
   },
   {
     number: '05', title: 'Student Management System', category: 'Full Stack · Database Applications',
@@ -48,13 +48,6 @@ const projects: Project[] = [
     stack: ['Python', 'Flask', 'MySQL', 'HTML / CSS', 'JavaScript'], icon: Globe,
     status: 'Built project', accent: 'violet', githubUrl: 'https://github.com/Akshay1917/vehicle-rental-system',
   },
-  {
-    number: '07', title: 'ESP32 IoT Home Automation', category: 'IoT · Embedded Systems',
-    description: 'A smart-home control project using custom ESP32 firmware to remotely manage household appliances through cloud triggers.',
-    stack: ['C++', 'ESP32', 'Arduino', 'Cloud Triggers'], icon: Cpu,
-    status: 'Built project', accent: 'green', githubUrl: 'https://github.com/Akshay1917/ESP32-IoT-Home-Automation',
-  },
-]
 
 const skillGroups = [
   { title: 'Programming', icon: Terminal, items: ['Python', 'Java', 'JavaScript', 'SQL'] },
@@ -68,10 +61,6 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' as const } },
 }
 
-
-function downloadResume() {
-  window.print()
-}
 
 function WaterRippleCanvas() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
@@ -205,7 +194,7 @@ function App() {
             <motion.p className="hero-description" initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.16 }}>I'm Akshay — an AI & Machine Learning engineering student and Python developer interested in building useful products with intelligent technology.</motion.p>
             <motion.div className="hero-actions" initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.24 }}>
               <a className="button button-primary" href="#projects">Explore my work <ArrowUpRight size={17} /></a>
-              <a className="button button-ghost" href="#contact">Get in touch <ArrowRight size={16} /></a><button className="button button-resume" onClick={() => void downloadResume()}><FileDown size={16} /> Download Resume</button>
+              <a className="button button-ghost" href="#contact">Get in touch <ArrowRight size={16} /></a><a className="button button-resume" href="/Akshay_Resume.pdf" download="Akshay_Resume.pdf"><FileDown size={16} /> Download Resume</a>
             </motion.div>
             <motion.div className="social-row" initial="hidden" animate="visible" variants={fadeUp} transition={{ delay: 0.3 }}>
               <a href="https://github.com/Akshay1917" target="_blank" rel="noreferrer"><Github size={17} /> GitHub <ArrowUpRight size={12} /></a>
@@ -249,66 +238,11 @@ function App() {
 
         <section className="section-wrap section-block" id="education"><div className="section-heading"><div><span className="section-index">04 / EDUCATION</span><h2>Learning is a <span className="gradient-text">journey.</span></h2></div></div><motion.div className="education-card" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={fadeUp}><div className="education-icon"><GraduationCap size={27} /></div><div className="education-details"><span className="education-period">2024 — 2028 · EXPECTED</span><h3>Bachelor of Engineering</h3><p>Artificial Intelligence & Machine Learning</p><span className="education-school">Dayananda Sagar Academy of Technology and Management</span></div><div className="education-score"><strong>8.44</strong><span>CGPA / 10</span></div></motion.div></section>
 
-        <section className="contact-section" id="contact"><div className="section-wrap contact-inner"><span className="section-index">05 / CONTACT</span><div className="contact-content"><div><h2>Have an idea?<br /><span className="gradient-text">Let's build it.</span></h2><p>I'm interested in internships, collaborations, and opportunities to learn by solving meaningful problems.</p></div><a className="contact-email" href="mailto:av3289216@gmail.com"><span><Mail size={19} /> Send me an email</span><ArrowUpRight size={22} /></a><button className="contact-resume" onClick={downloadResume}><FileDown size={17} /> Download resume PDF</button></div><div className="contact-bottom"><span>BASED IN INDIA · OPEN TO OPPORTUNITIES</span><div><a href="https://github.com/Akshay1917" target="_blank" rel="noreferrer">GITHUB <ExternalLink size={12} /></a><a href="https://www.linkedin.com/in/akshay-v-215466394/" target="_blank" rel="noreferrer">LINKEDIN <ExternalLink size={12} /></a></div></div></div></section>
+        <section className="contact-section" id="contact"><div className="section-wrap contact-inner"><span className="section-index">05 / CONTACT</span><div className="contact-content"><div><h2>Have an idea?<br /><span className="gradient-text">Let's build it.</span></h2><p>I'm interested in internships, collaborations, and opportunities to learn by solving meaningful problems.</p></div><a className="contact-email" href="mailto:av3289216@gmail.com"><span><Mail size={19} /> Send me an email</span><ArrowUpRight size={22} /></a><a className="contact-resume" href="/Akshay_Resume.pdf" download="Akshay_Resume.pdf"><FileDown size={17} /> Download resume PDF</a></div><div className="contact-bottom"><span>BASED IN INDIA · OPEN TO OPPORTUNITIES</span><div><a href="https://github.com/Akshay1917" target="_blank" rel="noreferrer">GITHUB <ExternalLink size={12} /></a><a href="https://www.linkedin.com/in/akshay-v-215466394/" target="_blank" rel="noreferrer">LINKEDIN <ExternalLink size={12} /></a></div></div></div></section>
       </main>
       <footer className="footer section-wrap"><a className="brand" href="#home"><span className="brand-mark">A<span>.</span></span><span>AKSHAY<span className="brand-sub"> / PORTFOLIO</span></span></a><span>DESIGNED & BUILT WITH CURIOSITY © {new Date().getFullYear()}</span><a href="#home" className="back-top">BACK TO TOP ↑</a></footer>
 
-      <section className="print-resume" aria-label="Printable resume">
-        <header className="print-header">
-          <h1>AKSHAY</h1>
-          <p className="print-subtitle">B.E. Artificial Intelligence &amp; Machine Learning | Python &amp; Full-Stack Developer</p>
-          <p className="print-contact">+91 8277454931 &nbsp;|&nbsp; av3289216@gmail.com &nbsp;|&nbsp; github.com/Akshay1917 &nbsp;|&nbsp; linkedin.com/in/akshay-v-215466394</p>
-        </header>
-        <div className="print-section">
-          <h2>PROFESSIONAL SUMMARY</h2>
-          <p>Third-year Artificial Intelligence and Machine Learning engineering student (CGPA: 8.44/10) with hands-on experience in Python, FastAPI, full-stack web development, and IoT edge computing. Proven ability to design modular software architectures, integrate Large Language Model (LLM) APIs, and build real-time hardware-software systems. Seeking software engineering or AI development opportunities to apply problem-solving skills and contribute to scalable technology solutions.</p>
-        </div>
-        <div className="print-section">
-          <h2>EDUCATION</h2>
-          <p><strong>Bachelor of Engineering (B.E.) in Artificial Intelligence and Machine Learning</strong> <span className="print-right">2024 – 2028 (Expected)</span></p>
-          <p>Dayananda Sagar Academy of Technology and Management (DSATM), Bengaluru <span className="print-right">CGPA: 8.44 / 10.0</span></p>
-        </div>
-        <div className="print-section">
-          <h2>TECHNICAL SKILLS</h2>
-          <p><strong>Languages:</strong> Python, C++, C, Java, JavaScript, TypeScript, SQL</p>
-          <p><strong>AI &amp; Machine Learning:</strong> LLM APIs, Generative AI, NLP, PyTorch, TensorFlow, Scikit-Learn, OpenCV, Pandas, NumPy</p>
-          <p><strong>Web &amp; Backend:</strong> FastAPI, Flask, React.js, Node.js, HTML5, CSS3</p>
-          <p><strong>Databases &amp; Tools:</strong> MySQL, Git, GitHub, Pytest, Ruff, VS Code, Arduino IDE</p>
-          <p><strong>IoT &amp; Hardware:</strong> ESP32, Arduino, MAX30100 Sensor, OLED Displays, Blynk Cloud</p>
-        </div>
-        <div className="print-section">
-          <h2>KEY PROJECTS</h2>
-          <p><strong>DevMind AI – AI-Powered Developer Assistant</strong> <span className="print-tech">Python, FastAPI, React, TypeScript</span></p>
-          <ul>
-            <li>Architected a modular full-stack AI assistant designed to streamline software development workflows.</li>
-            <li>Built high-performance backend API foundations using FastAPI and integrated automated testing with pytest.</li>
-            <li>Enforced code quality and linting standards using Ruff alongside structured Git version control.</li>
-          </ul>
-          <p><strong>AI PDF Summarizer</strong> <span className="print-tech">Python, FastAPI, NLP, LLM APIs</span></p>
-          <ul>
-            <li>Engineered a document processing tool that extracts text from lengthy PDFs and generates concise summaries using Large Language Models.</li>
-            <li>Built a backend workflow for document parsing and prompt optimization.</li>
-          </ul>
-          <p><strong>Smart IoT Health Monitoring System</strong> <span className="print-tech">C++, ESP32, MAX30100, OLED, Blynk</span></p>
-          <ul>
-            <li>Developed a real-time biometric telemetry prototype to monitor pulse rate and blood oxygen saturation (SpO2).</li>
-            <li>Integrated the MAX30100 sensor with ESP32, displayed live metrics on an OLED screen, and explored cloud alerts.</li>
-          </ul>
-          <p><strong>Full-Stack Management Systems (Student &amp; Vehicle Rental Suites)</strong> <span className="print-tech">Python, Flask, MySQL, HTML/CSS, JavaScript</span></p>
-          <ul>
-            <li>Developed database-driven web applications with user authentication, administrative dashboards, automated reporting, and booking workflows.</li>
-            <li>Designed relational database schemas in MySQL to support data integrity.</li>
-          </ul>
-          <p><strong>ESP32 IoT Home Automation</strong> <span className="print-tech">C++, ESP32, Arduino, Cloud Triggers</span></p>
-          <ul><li>Built a smart-home control system using custom ESP32 firmware to remotely manage appliances via cloud triggers.</li></ul>
-        </div>
-        <div className="print-section">
-          <h2>CORE COMPETENCIES</h2>
-          <p><strong>Software Engineering:</strong> Modular Architecture, RESTful API Design, Automated Testing, Version Control</p>
-          <p><strong>Professional Strengths:</strong> Analytical Problem-Solving, Rapid Prototyping, Team Collaboration, Self-Directed Learning</p>
-        </div>
-        <p className="print-note">To save this resume as a PDF, choose “Save as PDF” in the browser print dialog.</p>
-      </section>
+
     </div>
   )
 }
