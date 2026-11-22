@@ -315,3 +315,21 @@ button { font: inherit; }
   .print-tech { color: #475569 !important; font-style: italic; font-size: 7.4pt !important; }
   .print-note { border-top: .5pt solid #cbd5e1; margin-top: 6pt !important; padding-top: 3pt !important; font-size: 7pt !important; color: #64748b !important; }
 }
+
+
+@media print {
+  .print-section { margin-top: 5.5pt !important; }
+  .print-section h2 { background: transparent !important; color: #142849 !important; border-bottom: .8pt solid #233957; padding: 0 0 2pt !important; font-size: 8.8pt !important; margin-bottom: 3pt !important; }
+  .print-section p { font-size: 8pt !important; line-height: 1.2 !important; }
+  .print-section ul { margin: 0 0 3pt 12pt !important; }
+  .print-section li { font-size: 7.7pt !important; line-height: 1.12 !important; margin: .5pt 0 !important; }
+  .print-skills { columns: 2; column-gap: 22pt; }
+  .print-skills li { break-inside: avoid; }
+  .print-project-title { display: flex; align-items: baseline; justify-content: space-between; gap: 8pt; margin-top: 3pt !important; }
+  .print-project-title strong { flex: 1; }
+  .print-project-title em { text-align: right; white-space: nowrap; font-size: 7.1pt; color: #475569; }
+  .print-strengths { columns: 2; column-gap: 22pt; }
+  .print-strengths li { break-inside: avoid; }
+  .print-contact { font-size: 7.2pt !important; }
+  .print-header { margin-bottom: 6pt !important; padding-bottom: 5pt !important; }
+}
